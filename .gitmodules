@@ -1,7 +1,3 @@
-[submodule "go-ethereum"]
-	path = go-ethereum
-	url = https://github.com/ethereum/go-ethereum
-	branch = release/1.13
 [submodule "prysm-stratis"]
 	path = prysm-stratis
 	url = https://github.com/stratisproject/prysm-stratis
