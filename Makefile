@@ -18,8 +18,8 @@ run-geth-testnet:
 		--ws.origins=* \
 		--authrpc.vhosts=* \
 		--authrpc.addr=0.0.0.0 \
-		--authrpc.jwtsecret=configs/jwtsecret \
-		--datadir=data/geth \
+		--authrpc.jwtsecret=configs/testnet/jwtsecret \
+		--datadir=data/testnet/geth \
 		--syncmode=full
 
 run-beacon-testnet:
@@ -28,14 +28,14 @@ run-beacon-testnet:
 		--bootstrap-node=enr:-MK4QC0RZEk8vnHDV_r545j_fr0sMJiFDTg5XzjvMGvNpWC8Z7CxHXYIk8v5QQv98hag9GhwGfsS4i0gMgpuTOq0ddOGAYx-0Ebwh2F0dG5ldHOIgAEAAAAAAACEZXRoMpAZsrCWIAAAc___________gmlkgnY0gmlwhJB-yIqJc2VjcDI1NmsxoQJc7jQivE8v8maM__IlAQjRlk3fUjQ6g28LDm_yvuFTVIhzeW5jbmV0cwCDdGNwgjLIg3VkcIIu4A \
 		--bootstrap-node=enr:-MK4QOiposnqkGSkVcVXeS2RvaMOgLOWFRxJUGyIBQE5y7OITeshOx324-ziiP5rMXtq2UQzEEzBeVCV9x9qkZchGWKGAYx-0AIKh2F0dG5ldHOIAAAAAwAAAACEZXRoMpAZsrCWIAAAc___________gmlkgnY0gmlwhM-axcyJc2VjcDI1NmsxoQNtJ-08vT80nEn18osacUCGm7n7cC_AnQWe0lD6jSKp9YhzeW5jbmV0cw-DdGNwgjLIg3VkcIIu4A \
 		--stratis \
-		--datadir=data/beacon \
+		--datadir=data/testnet/beacon \
 		--min-sync-peers=1 \
-		--genesis-state=configs/genesis.ssz \
+		--genesis-state=configs/testnet/genesis.ssz \
 		--rpc-host=0.0.0.0 \
 		--grpc-gateway-host=0.0.0.0 \
 		--execution-endpoint=http://localhost:8551 \
 		--accept-terms-of-use \
-		--jwt-secret=configs/jwtsecret \
+		--jwt-secret=configs/testnet/jwtsecret \
 		--suggested-fee-recipient=0x123463a4B065722E99115D6c222f267d9cABb524 \
 		--minimum-peers-per-subnet=0 \
 		--enable-debug-rpc-endpoints
