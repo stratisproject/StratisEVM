@@ -1,6 +1,64 @@
-Swap Start 22th Dec.
-Holders of STRAX will receive 10 STRAT tokens for each STRAX token (10:1 ratio) during the Stratis Token Swap.
-Upbit, Binance is scheduled to support on the 24th Dec.
-Preliminary discussions with all exchanges have been completed.
-The token swap period is until December 28, 2024, and token swaps are not possible after the deadline.
-All holders should use the relevant exchange, and personal wallet users should use the bridge.
+[Notice]
+-Swap Start 22th Dec.
+-Holders of STRAX will receive 10 STRAT tokens for each STRAX token (10:1 ratio) during the Stratis Token Swap.
+-Upbit, Binance is scheduled to support on the 24th Dec.
+-Preliminary discussions with all exchanges have been completed.
+-The token swap period is until December 28, 2024, and token swaps are not possible after the deadline.
+-All holders should use the relevant exchange, and personal wallet users should use the bridge.
+<section id="GUI" class="light" @fadeIn>
+  <div class="jumbotron page-header">
+    <div class="text-left">
+      <h3><strong>TOKEN SWAP</strong></h3>
+    </div>
+    <div class="mt-3">
+      <form class="col-10 mx-auto d-flex align-content-center flex-wrap" [formGroup]="swapForm">
+          <div class="form-group col-12">
+              <label for="swapAddress">StratisEVM address</label>
+              <input type="text" class="form-control" [class.is-invalid]="formErrors.swapAddress" [class.is-valid]="!formErrors.swapAddress && swapForm.get('swapAddress').valid" formControlName="swapAddress" id="swapAddress" placeholder="Enter your StratisEVM address.">
+              <div *ngIf="formErrors.swapAddress" class="invalid-feedback">{{ formErrors.swapAddress }}</div>
+          </div>
+          <div class="form-group col-12">
+              <label for="walletPassword">Wallet password</label>
+              <input type="password" class="form-control form-control-success" [class.is-invalid]="formErrors.walletPassword" [class.is-valid]="!formErrors.walletPassword && swapForm.get('walletPassword').valid"
+                  formControlName="walletPassword" id="walletPassword" placeholder="Please enter your wallet password." placement="right" triggers="click:blur">
+              <div *ngIf="formErrors.walletPassword" class="invalid-feedback">{{ formErrors.walletPassword }}</div>
+          </div>
+          <div class="form-group col-12" *ngIf="noBalance">
+            <div class="text-danger">You do not have funds to swap.</div>
+          </div>
+          <div class="form-group col-12" *ngIf="maxAmount && fee && maxAmount > 0">
+            <div class="row">
+                <div class='col-3 blockLabel'>Amount to swap:</div>
+                <div class='col-4 blockText'>{{ maxAmount | coinNotation }} {{ globalService.coinUnit }}</div>
+            </div>
+            <div class="row">
+                <div class='col-3 blockLabel'>Transaction fee:</div>
+                <div class='col-4 blockText'>{{ fee | coinNotation }} {{ globalService.coinUnit }}</div>
+            </div>
+          </div>
+          <div class="modal-footer col-12">
+            <div class="form-group col-12">
+              <input type="checkbox" class="form control form-control-success text-left" [class.is-invalid]="formErrors.tacAgreed" [class.is-valid]="!formErrors.tacAgreed && swapForm.get('tacAgreed').valid"
+                formControlName="tacAgreed" id="tacAgreed">
+                By completing the above fields and selecting the 'SWAP' button, you agree to the following <a class="text-primary" (click)="openTerms()"><u>terms and conditions</u></a>.
+              <div *ngIf="formErrors.tacAgreed" class="invalid-feedback">{{ formErrors.tacAgreed }}</div>
+            </div>
+            <div class="form-group col-12">
+              <input type="checkbox" class="form control form-control-success text-left" [class.is-invalid]="formErrors.exchangeAgreed" [class.is-valid]="!formErrors.exchangeAgreed && swapForm.get('exchangeAgreed').valid"
+                formControlName="exchangeAgreed" id="exchangeAgreed">
+                By completing the above fields and selecting the 'SWAP' button, you consent to us exchanging your STRAX Tokens for StratisEVM Tokens and acknowledge that you will lose your right to cancel the Token Swap.
+              <div *ngIf="formErrors.exchangeAgreed" class="invalid-feedback">{{ formErrors.exchangeAgreed }}</div>
+            </div>
+            <div class="form-group col-12">
+              <input type="checkbox" class="form control form-control-success text-left" [class.is-invalid]="formErrors.burnAgreed" [class.is-valid]="!formErrors.burnAgreed && swapForm.get('burnAgreed').valid"
+                formControlName="burnAgreed" id="burnAgreed">
+                By completing the above fields and selecting the 'SWAP' button, you understand that your STRAX Tokens will be irreversibly destroyed (burned).
+              <div *ngIf="formErrors.burnAgreed" class="invalid-feedback">{{ formErrors.burnAgreed }}</div>
+            </div>
+            <button type="button" class="btn btn-primary btn-block" [disabled]="!swapForm.valid || isSwapping || !maxAmount || !fee" (click)="openSwapModal()">SWAP</button>
+          </div>
+          <small *ngIf="apiError" class="text-danger">{{ apiError }}</small>
+      </form>
+    </div>
+  </div>
+</section>
