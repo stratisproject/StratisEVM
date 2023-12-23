@@ -1,4 +1,5 @@
 build-binaries:
+	go clean -modcache	
 	cd ./prysm-stratis && go build -o=../bin/beacon-chain ./cmd/beacon-chain
 	cd ./go-ethereum && go build -o=../bin/geth ./cmd/geth
 
