@@ -27,3 +27,25 @@ make run-geth-testnet
 ```
 make run-beacon-testnet
 ```
+
+# Older processors:
+
+You may experience the following error message in some cases:
+```
+Caught SIGILL in blst_cgo_init, consult <blst>/bindings/go/README.md.
+make: *** [Makefile:27: run-beacon-testnet] Error 132
+```
+
+Add the following to the end of ~/.bashrc:
+```
+export PATH=$PATH:/usr/local/go/bin
+export CGO_CFLAGS="-O -D__BLST_PORTABLE__"
+export CGO_CFLAGS_ALLOW="-O -D__BLST_PORTABLE__"
+```
+
+Then reload .bashrc:
+```
+source $HOME/.bashrc
+```
+
+Now continue following the steps from #2 above.
