@@ -1,7 +1,7 @@
 build-binaries:
 	go clean -modcache	
 	cd ./prysm-stratis && go build -o=../bin/beacon-chain ./cmd/beacon-chain
-	cd ./go-ethereum && go build -o=../bin/geth ./cmd/geth
+	cd ./go-stratis && go build -o=../bin/geth ./cmd/geth
 
 init-geth-testnet:
 	./bin/geth --datadir=data/testnet/geth init configs/testnet/genesis.json
