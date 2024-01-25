@@ -6,3 +6,6 @@
 	path = go-stratis
 	url = https://github.com/stratisproject/go-stratis
 	branch = Test
+[submodule "staking-deposit-cli"]
+	path = staking-deposit-cli
+	url = https://github.com/stratisproject/staking-deposit-cli
