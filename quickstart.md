@@ -31,14 +31,7 @@ Step 1: Review prerequisites and best practices
 *   **If you're staking STRAX as a validator, try this guide on a testnet first**, _then_ mainnet.
 *   **Keep things simple**. This guidance assumes all client software will run on a single machine.
 
-
-Step 2: Install Prysm
---------------------------------------------------------------------------------------
-### Windows
- 1. Download the latest release of `beacon-chain` and `validator` for your Operating System from: https://github.com/stratisproject/prysm-stratis/releases
- 2. Extract into a location on your host, for example `C:\consensus` or `~/consensus`
-
-Step 3: Run an execution client
+Step 2: Run an execution client
 -------------------------------------
 
 1. Download the latest release of `geth`  for your Operating System from: https://github.com/stratisproject/go-stratis/releases
@@ -47,42 +40,43 @@ Step 3: Run an execution client
 
 ## Windows
 #### Auroria (Testnet)
-	geth.exe --auroria --http --http.api eth,net,engine,admin --ipcpath=<PATH_TO_IPC_FILE>
+	geth.exe --auroria --http --http.api eth,net,engine,admin
 #### Mainnet
-	geth.exe --http --http.api eth,net,engine,admin --ipcpath=<PATH_TO_IPC_FILE>
+	geth.exe --http --http.api eth,net,engine,admin
 ## Linux
 #### Auroria (Testnet)
-	./geth --auroria --http --http.api eth,net,engine,admin --ipcpath=<PATH_TO_IPC_FILE>
+	./geth --auroria --http --http.api eth,net,engine,admin
 #### Mainnet
-	./geth --http --http.api eth,net,engine,admin --ipcpath=<PATH_TO_IPC_FILE>
+	./geth --http --http.api eth,net,engine,admin
 ## MacOS
 #### Auroria (Testnet)
-	./geth --auroria --http --http.api eth,net,engine,admin --ipcpath=<PATH_TO_IPC_FILE>
+	./geth --auroria --http --http.api eth,net,engine,admin
 #### Mainnet
-	./geth --http --http.api eth,net,engine,admin --ipcpath=<PATH_TO_IPC_FILE>
+	./geth --http --http.api eth,net,engine,admin
 
 The execution layer client cannot sync without an attached beacon node. We'll see how to setup a beacon node in the next step.
 
-Step 4: Run a beacon node using Prysm
+Step 3: Run a beacon node using Prysm
 -----------------------------------------------
-
-Navigate to your `consensus` directory and run the following command to start your beacon node that connects to your local execution node by replacing `<PATH_TO_IPC_FILE>` by the path to the IPC file generated during the previous step:
+1. Download the latest release of `beacon-chain` and `validator` for your Operating System from: https://github.com/stratisproject/prysm-stratis/releases
+2. Extract into a location on your host, for example `C:\consensus` or `~/consensus`
+3. Navigate to your `consensus` directory and run the following command to start your beacon node that connects to your local execution node:
 
 ## Windows
 #### Auroria (Testnet)
-	beacon-chain.exe --auroria --execution-endpoint=<PATH_TO_IPC_FILE>
+	beacon-chain.exe --auroria --execution-endpoint=\\.\pipe\geth.ipc
 #### Mainnet
-	beacon-chain.exe -execution-endpoint=<PATH_TO_IPC_FILE>
+	beacon-chain.exe --execution-endpoint=\\.\pipe\geth.ipc
 ## Linux
 #### Auroria (Testnet)
-	./beacon-chain --auroria --execution-endpoint=<PATH_TO_IPC_FILE>
+	./beacon-chain --auroria --execution-endpoint=\\.\pipe\geth.ipc
 #### Mainnet
-	./beacon-chain -execution-endpoint=<PATH_TO_IPC_FILE>
+	./beacon-chain --execution-endpoint=\\.\pipe\geth.ipc
 ## MacOS
 #### Auroria (Testnet)
-	./beacon-chain --auroria --execution-endpoint=<PATH_TO_IPC_FILE>
+	./beacon-chain --auroria --execution-endpoint=\\.\pipe\geth.ipc
 #### Mainnet
-	./beacon-chain -execution-endpoint=<PATH_TO_IPC_FILE>
+	./beacon-chain --execution-endpoint=\\.\pipe\geth.ipc
 
 If you are planning to run a validator, it is **strongly** advised to use the `--suggested-fee-recipient=<WALLET ADDRESS>` option. When your validator proposes a block, it will allow you to earn block priority fees, also sometimes called "tips".
 
