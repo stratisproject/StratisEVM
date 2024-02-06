@@ -40,21 +40,21 @@ Step 2: Run an execution client
 
 ## Windows
 #### Auroria (Testnet)
-	('0x' + ([BitConverter]::ToString((New-Object Security.Cryptography.RNGCryptoServiceProvider).GetBytes((New-Object Byte[] 32))) -replace '-')).ToLower() | Out-File -FilePath .\configs\testnet\jwtsecret
+	.\bin\beacon-chain.exe generate-auth-secret --output-file .\configs\testnet\jwtsecret
 #### Mainnet
-	('0x' + ([BitConverter]::ToString((New-Object Security.Cryptography.RNGCryptoServiceProvider).GetBytes((New-Object Byte[] 32))) -replace '-')).ToLower() | Out-File -FilePath .\configs\mainnet\jwtsecret
+	.\bin\beacon-chain.exe generate-auth-secret --output-file .\configs\mainnet\jwtsecret
 
 ## Linux
 #### Auroria (Testnet)
-	echo -n '0x'$(openssl rand -hex 32) > ./configs/testnet/jwtsecret
+	.\bin\beacon-chain generate-auth-secret --output-file  ./configs/testnet/jwtsecret
 #### Mainnet
-	echo -n '0x'$(openssl rand -hex 32) > ./configs/mainnet/jwtsecret
+	.\bin\beacon-chain.exe generate-auth-secret --output-file  ./configs/mainnet/jwtsecret
 
 ## MacOS
 #### Auroria (Testnet)
-	echo -n '0x'$(openssl rand -hex 32) > ./configs/testnet/jwtsecret
+	.\bin\beacon-chain generate-auth-secret --output-file  ./configs/testnet/jwtsecret
 #### Mainnet
-	echo -n '0x'$(openssl rand -hex 32) > ./configs/mainnet/jwtsecret
+	.\bin\beacon-chain.exe generate-auth-secret --output-file  ./configs/mainnet/jwtsecret
 
 4. Navigate to your `bin` directory and execute the following command:
 
