@@ -1,7 +1,7 @@
 [submodule "prysm-stratis"]
 	path = prysm-stratis
 	url = https://github.com/stratisproject/prysm-stratis
-	branch = StratisEVM
+	branch = Test
 [submodule "go-stratis"]
 	path = go-stratis
 	url = https://github.com/stratisproject/go-stratis
