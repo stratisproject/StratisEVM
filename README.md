@@ -40,19 +40,19 @@ Step 2: Run an execution client
 
 ## Windows
 #### Auroria (Testnet)
-	./bin/geth.exe --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	geth.exe --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
 #### Mainnet
-	./bin/geth.exe --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	geth.exe --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
 ## Linux
 #### Auroria (Testnet)
-	./bin/geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
 #### Mainnet
-	./bin/geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
 ## MacOS
 #### Auroria (Testnet)
-	./bin/geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
 #### Mainnet
-	./bin/geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
 
 The execution layer client cannot sync without an attached beacon node. We'll see how to setup a beacon node in the next step.
 
@@ -64,19 +64,19 @@ Step 3: Run a beacon node using Prysm
 
 ## Windows
 #### Auroria (Testnet)
-	./bin/beacon-chain.exe --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	beacon-chain.exe --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
 #### Mainnet
-	./bin/beacon-chain.exe --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	beacon-chain.exe --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
 ## Linux
 #### Auroria (Testnet)
-	./bin/beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
 #### Mainnet
-	./bin/beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
 ## MacOS
 #### Auroria (Testnet)
-	./bin/beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
 #### Mainnet
-	./bin/beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
 
 If you are planning to run a validator, it is **strongly** advised to use the `--suggested-fee-recipient=<WALLET ADDRESS>` option. When your validator proposes a block, it will allow you to earn block priority fees, also sometimes called "tips".
 
@@ -101,19 +101,19 @@ Run the following command to create your mnemonic (a unique and **highly sensiti
 
 ## Windows
 #### Auroria (Testnet)
-	./bin/deposit.exe new-mnemonic --num_validators=1 --mnemonic_language=english --chain=auroria --eth1_withdrawal_address=<INSERT ADDRESS>
+	deposit.exe new-mnemonic --num_validators=1 --mnemonic_language=english --chain=auroria --eth1_withdrawal_address=<INSERT ADDRESS>
 #### Mainnet
-	./bin/deposit.exe new-mnemonic --num_validators=1 --mnemonic_language=english --chain=mainnet --eth1_withdrawal_address=<INSERT ADDRESS>
+	deposit.exe new-mnemonic --num_validators=1 --mnemonic_language=english --chain=mainnet --eth1_withdrawal_address=<INSERT ADDRESS>
 ## Linux
 #### Auroria (Testnet)
-	./bin/deposit new-mnemonic --num_validators=1 --mnemonic_language=english --chain=auroria --eth1_withdrawal_address=<INSERT ADDRESS>
+	./deposit new-mnemonic --num_validators=1 --mnemonic_language=english --chain=auroria --eth1_withdrawal_address=<INSERT ADDRESS>
 #### Mainnet
-	./bin/deposit new-mnemonic --num_validators=1 --mnemonic_language=english --chain=mainnet --eth1_withdrawal_address=<INSERT ADDRESS>
+	./deposit new-mnemonic --num_validators=1 --mnemonic_language=english --chain=mainnet --eth1_withdrawal_address=<INSERT ADDRESS>
 ## MacOS
 #### Auroria (Testnet)
-	./bin/deposit new-mnemonic --num_validators=1 --mnemonic_language=english --chain=auroria --eth1_withdrawal_address=<INSERT ADDRESS>
+	./deposit new-mnemonic --num_validators=1 --mnemonic_language=english --chain=auroria --eth1_withdrawal_address=<INSERT ADDRESS>
 #### Mainnet
-	./bin/deposit new-mnemonic --num_validators=1 --mnemonic_language=english --chain=mainnet --eth1_withdrawal_address=<INSERT ADDRESS>
+	./deposit new-mnemonic --num_validators=1 --mnemonic_language=english --chain=mainnet --eth1_withdrawal_address=<INSERT ADDRESS>
 
 Follow the CLI prompts to generate your keys, it's better to use the directory `configs/testnet/validator_keys` or `configs/mainnet/validator_keys` for the chosen network. The password you choose will be needed later when importing the generated data into the Prysm validator client. This will give you the following artifacts:
 
@@ -129,19 +129,19 @@ If needed, copy the `validator_keys` folder to your primary machine. Run the fol
 
 ## Windows
 #### Auroria (Testnet)
-	./bin/validator.exe accounts import --keys-dir=<YOUR_FOLDER_PATH> --auroria
+	validator.exe accounts import --keys-dir=<YOUR_FOLDER_PATH> --auroria
 #### Mainnet
-	./bin/validator.exe accounts import --keys-dir=<YOUR_FOLDER_PATH> --mainnet
+	validator.exe accounts import --keys-dir=<YOUR_FOLDER_PATH> --mainnet
 ## Linux
 #### Auroria (Testnet)
-	./bin/validator accounts import --keys-dir=<YOUR_FOLDER_PATH> --auroria
+	./validator accounts import --keys-dir=<YOUR_FOLDER_PATH> --auroria
 #### Mainnet
-	./bin/validator accounts import --keys-dir=<YOUR_FOLDER_PATH> --mainnet
+	./validator accounts import --keys-dir=<YOUR_FOLDER_PATH> --mainnet
 ## MacOS
 #### Auroria (Testnet)
-	./bin/validator accounts import --keys-dir=<YOUR_FOLDER_PATH> --auroria
+	./validator accounts import --keys-dir=<YOUR_FOLDER_PATH> --auroria
 #### Mainnet
-	./bin/validator accounts import --keys-dir=<YOUR_FOLDER_PATH> --mainnet
+	./validator accounts import --keys-dir=<YOUR_FOLDER_PATH> --mainnet
 
 You’ll be prompted to specify a wallet directory twice. Provide the path to your future wallets directory. For example: `C:/repos/StratisEVM/configs/testnet/wallet_dir` or `C:/repos/StratisEVM/configs/mainnet/wallet_dir` for the selected network. You should see `Imported accounts [...] view all of them by running accounts list` when your account has been successfully imported into Prysm.
 
@@ -167,19 +167,19 @@ Finally, run the following command to start your validator, replacing `<YOUR_FOL
 
 ## Windows
 #### Auroria (Testnet)
-	./bin/validator.exe --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	validator.exe --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 #### Mainnet
-	./bin/validator.exe --wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	validator.exe --wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 ### Linux
 #### Auroria (Testnet)
-	./bin/validator --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	./validator --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 #### Mainnet
-	./bin/validator -wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	./validator -wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 ## MacOS
 #### Auroria (Testnet)
-	./bin/validator --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	./validator --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 #### Mainnet
-	./bin/validator -wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	./validator -wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 
 You may wonder why you need to use the `--suggested-fee-recipient` in both beacon node and validator client. The reason is it is possible to plug multiple validator clients to the same beacon node. If no `--suggested-fee-recipient` is set on a validator client, then the beacon node will fallback on its own `--suggested-fee-recipient` when proposing a block.
 
