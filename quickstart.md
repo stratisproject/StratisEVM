@@ -36,27 +36,7 @@ Step 2: Run an execution client
 
 1. Download the latest release of `geth`  for your Operating System from: https://github.com/stratisproject/go-stratis/releases
 2. Extract into a location on your host, to the `bin` directory in this repository's local copy. For example `C:\repos\StratisEVM\bin`
-3. Create your own jwtsecret file. This can be done by the following commands:
-
-## Windows
-#### Auroria (Testnet)
-	.\bin\beacon-chain.exe generate-auth-secret --output-file .\configs\testnet\jwtsecret
-#### Mainnet
-	.\bin\beacon-chain.exe generate-auth-secret --output-file .\configs\mainnet\jwtsecret
-
-## Linux
-#### Auroria (Testnet)
-	.\bin\beacon-chain generate-auth-secret --output-file  ./configs/testnet/jwtsecret
-#### Mainnet
-	.\bin\beacon-chain.exe generate-auth-secret --output-file  ./configs/mainnet/jwtsecret
-
-## MacOS
-#### Auroria (Testnet)
-	.\bin\beacon-chain generate-auth-secret --output-file  ./configs/testnet/jwtsecret
-#### Mainnet
-	.\bin\beacon-chain.exe generate-auth-secret --output-file  ./configs/mainnet/jwtsecret
-
-4. Navigate to your `bin` directory and execute the following command:
+3. Navigate to your `bin` directory and execute the following command:
 
 ## Windows
 #### Auroria (Testnet)
