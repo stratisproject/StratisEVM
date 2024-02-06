@@ -40,19 +40,19 @@ Step 2: Run an execution client
 
 ## Windows
 #### Auroria (Testnet)
-	./bin/geth.exe --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./bin/geth.exe --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret
 #### Mainnet
-	./bin/geth.exe --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./bin/geth.exe --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret
 ## Linux
 #### Auroria (Testnet)
-	./bin/geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./bin/geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret
 #### Mainnet
-	./bin/geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./bin/geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret
 ## MacOS
 #### Auroria (Testnet)
-	./bin/geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./bin/geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret
 #### Mainnet
-	./bin/geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./bin/geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret
 
 The execution layer client cannot sync without an attached beacon node. We'll see how to setup a beacon node in the next step.
 
@@ -64,19 +64,19 @@ Step 3: Run a beacon node using Prysm
 
 ## Windows
 #### Auroria (Testnet)
-	./bin/beacon-chain.exe --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./bin/beacon-chain.exe --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 #### Mainnet
-	./bin/beacon-chain.exe --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./bin/beacon-chain.exe --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 ## Linux
 #### Auroria (Testnet)
-	./bin/beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./bin/beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 #### Mainnet
-	./bin/beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./bin/beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 ## MacOS
 #### Auroria (Testnet)
-	./bin/beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./bin/beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 #### Mainnet
-	./bin/beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./bin/beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 
 If you are planning to run a validator, it is **strongly** advised to use the `--suggested-fee-recipient=<WALLET ADDRESS>` option. When your validator proposes a block, it will allow you to earn block priority fees, also sometimes called "tips".
 
@@ -159,7 +159,7 @@ If you need tSTRAX, head over to our Discord server or use the Faucet:
 Next, go to the launcphad and upload your `deposit_data-*.json` file. You’ll be prompted to connect your wallet.
 
 [Auroria Staking Launchpad (Testnet)](https://auroria.launchpad.stratisevm.com/en/generate-keys)
-[Stratis Staking Launchpad (Mainnet)](https://launchpad.stratisevm.com/en/generate-keys)
+[Stratis Staking Launchpad (Mainnet)]()
 
 Exercise extreme caution throughout this procedure - **never send real STRAX to the testnet deposit contract.**
 
