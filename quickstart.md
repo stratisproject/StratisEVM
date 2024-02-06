@@ -36,7 +36,27 @@ Step 2: Run an execution client
 
 1. Download the latest release of `geth`  for your Operating System from: https://github.com/stratisproject/go-stratis/releases
 2. Extract into a location on your host, to the `bin` directory in this repository's local copy. For example `C:\repos\StratisEVM\bin`
-3. Navigate to your `bin` directory and execute the following command:
+3. Create your own jwtsecret file. This can be done by the following commands:
+
+## Windows
+#### Auroria (Testnet)
+	('0x' + ([BitConverter]::ToString((New-Object Security.Cryptography.RNGCryptoServiceProvider).GetBytes((New-Object Byte[] 32))) -replace '-')).ToLower() | Out-File -FilePath .\configs\testnet\jwtsecret
+#### Mainnet
+	('0x' + ([BitConverter]::ToString((New-Object Security.Cryptography.RNGCryptoServiceProvider).GetBytes((New-Object Byte[] 32))) -replace '-')).ToLower() | Out-File -FilePath .\configs\mainnet\jwtsecret
+
+## Linux
+#### Auroria (Testnet)
+	echo -n '0x'$(openssl rand -hex 32) > ./configs/testnet/jwtsecret
+#### Mainnet
+	echo -n '0x'$(openssl rand -hex 32) > ./configs/mainnet/jwtsecret
+
+## MacOS
+#### Auroria (Testnet)
+	echo -n '0x'$(openssl rand -hex 32) > ./configs/testnet/jwtsecret
+#### Mainnet
+	echo -n '0x'$(openssl rand -hex 32) > ./configs/mainnet/jwtsecret
+
+4. Navigate to your `bin` directory and execute the following command:
 
 ## Windows
 #### Auroria (Testnet)
@@ -159,7 +179,7 @@ If you need tSTRAX, head over to our Discord server or use the Faucet:
 Next, go to the launcphad and upload your `deposit_data-*.json` file. You’ll be prompted to connect your wallet.
 
 [Auroria Staking Launchpad (Testnet)](https://auroria.launchpad.stratisevm.com/en/generate-keys)
-[Stratis Staking Launchpad (Mainnet)](https://launchpad.stratisevm.com/en/generate-keys)
+[Stratis Staking Launchpad (Mainnet)]()
 
 Exercise extreme caution throughout this procedure - **never send real STRAX to the testnet deposit contract.**
 
