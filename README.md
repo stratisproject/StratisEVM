@@ -44,19 +44,19 @@ Step 2: Run an execution client
 
 ## Windows
 #### Auroria (Testnet)
-	geth.exe --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	geth.exe --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
 #### Mainnet
-	geth.exe --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	geth.exe --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
 ## Linux
 #### Auroria (Testnet)
-	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
 #### Mainnet
-	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
 ## MacOS
 #### Auroria (Testnet)
-	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
 #### Mainnet
-	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret
+	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
 
 The execution layer client cannot sync without an attached beacon node. We'll see how to setup a beacon node in the next step.
 
