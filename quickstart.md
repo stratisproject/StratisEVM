@@ -67,6 +67,13 @@ Step 3: Run a beacon node using Prysm
 3. Navigate to your `bin` directory and run the following command to start your beacon node that connects to your local execution node:
 
 ## Windows
+
+##### Recommended for Windows:
+Run the following command to improve output displayed in console:
+
+	reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1
+ 
+**Note: You will need to launch a new instance of CMD or PowerShell for these changes to take effect.**
 #### Auroria (Testnet)
 	beacon-chain.exe --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
 #### Mainnet
