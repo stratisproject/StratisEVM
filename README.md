@@ -21,7 +21,11 @@ Step 1: Review prerequisites and best practices
 *   **Memory**: 16GB+ RAM
 *   **Storage**: SSD with at least 1TB free space
 *   **Network**: 8 MBit/sec broadband
-
+  
+**Port Requirements**
+*   **GETH**: Allow: 30303/UDP+TCP in+out; Block: 8545/TCP all
+*   **Prysm beacon-chain**: Allow: */TCP+UDP out, 13000/TCP in+out, 12000/UDP in+out; Block: 3500/TCP all, 8551/TCP all, 4000/TCP all
+  
 **Validator Requirements**
 * A new machine that has never been connected to the internet that you can use to securely generate your mnemonic phrase and keypair
 *   **20,000 STRAX** (Mainnet) or **20,000 tSTRAX** (Testnet)
