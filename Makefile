@@ -1,13 +1,18 @@
+OSFLAG :=
+ifeq ($(OS),Windows_NT)
+	OSFLAG = .exe
+endif
+
 build-binaries:
 	go clean -modcache	
-	cd ./prysm-stratis && go build -o=../bin/beacon-chain ./cmd/beacon-chain
-	cd ./go-stratis && go build -o=../bin/geth ./cmd/geth
+	cd ./prysm-stratis && go build -o=../bin/beacon-chain$(OSFLAG) ./cmd/beacon-chain
+	cd ./go-stratis && go build -o=../bin/geth$(OSFLAG) ./cmd/geth
 
 init-geth-testnet:
-	./bin/geth --datadir=data/testnet/geth init configs/testnet/genesis.json
+	./bin/geth$(OSFLAG) --datadir=data/testnet/geth init configs/testnet/genesis.json
 
 run-geth-testnet:
-	./bin/geth \
+	./bin/geth$(OSFLAG) \
 		--networkid=205205 \
 		--auroria \
 		--http \
@@ -25,7 +30,7 @@ run-geth-testnet:
 		--syncmode=full
 
 run-beacon-testnet:
-	./bin/beacon-chain \
+	./bin/beacon-chain$(OSFLAG) \
 		--p2p-static-id \
 		--auroria \
 		--datadir=data/testnet/beacon \
