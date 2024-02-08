@@ -104,7 +104,7 @@ Alternatively, you can follow the below steps:
 
 Step 5a: Generate Keys without Launchpad (Optional)
 -----------------------------------------------------------------
-Download - ideally on a new machine that has never been connected to the internet - the latest stable version of the deposit CLI from the [Staking Deposit CLI Releases page](https://github.com/stratisproject/staking-deposit-cli) to the `bin` directory in this repository's local copy.
+Download - ideally on a new machine that has never been connected to the internet - the latest stable version of the deposit CLI from the [Staking Deposit CLI Releases page](https://github.com/stratisproject/staking-deposit-cli/releases) to the `bin` directory in this repository's local copy.
 
 You may choose to provide a withdrawal address with your initial deposit to automatically enable reward payments and also the ability to fully exit your funds at anytime (recommended). This address should be to a regular Stratis address and will be the only address funds can be sent to from your new validator accounts, and cannot be changed once chosen.
 
