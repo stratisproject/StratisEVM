@@ -18,7 +18,7 @@ Step 1: Review prerequisites and best practices
 **Hardware Requirements**
 *   **OS**: 64-bit Linux, Mac OS X 10.14+, Windows 10+ 64-bit
 *   **CPU**: 4+ cores @ 2.8+ GHz
-*   **Memory**: 16GB+ RAM
+*   **Memory**: 8GB+ RAM
 *   **Storage**: SSD with at least 1TB free space
 *   **Network**: 8 MBit/sec broadband
   
@@ -44,19 +44,19 @@ Step 2: Run an execution client
 
 ## Windows
 #### Auroria (Testnet)
-	geth.exe --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
+	geth.exe --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret --syncmode=full
 #### Mainnet
-	geth.exe --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
+	geth.exe --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret --syncmode=full
 ## Linux
 #### Auroria (Testnet)
-	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
+	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret --syncmode=full
 #### Mainnet
-	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
+	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret --syncmode=full
 ## MacOS
 #### Auroria (Testnet)
-	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
+	./geth --auroria --http --http.api eth,net,engine,admin --datadir=data\testnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret --syncmode=full
 #### Mainnet
-	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=configs/testnet/jwtsecret --syncmode=full
+	./geth --http --http.api eth,net,engine,admin --datadir=data\mainnet\geth --authrpc.addr=127.0.0.1 --authrpc.jwtsecret=jwtsecret --syncmode=full
 
 The execution layer client cannot sync without an attached beacon node. We'll see how to setup a beacon node in the next step.
 
@@ -75,19 +75,19 @@ Run the following command to improve output displayed in console:
  
 **Note: You will need to launch a new instance of CMD or PowerShell for these changes to take effect.**
 #### Auroria (Testnet)
-	beacon-chain.exe --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	beacon-chain.exe --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 #### Mainnet
-	beacon-chain.exe --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	beacon-chain.exe --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 ## Linux
 #### Auroria (Testnet)
-	./beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 #### Mainnet
-	./beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 ## MacOS
 #### Auroria (Testnet)
-	./beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./beacon-chain --auroria --datadir=data\testnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 #### Mainnet
-	./beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=configs/testnet/jwtsecret
+	./beacon-chain --datadir=data\mainnet\beacon --execution-endpoint=http://localhost:8551 --jwt-secret=jwtsecret
 
 If you are planning to run a validator, it is **strongly** advised to use the `--suggested-fee-recipient=<WALLET ADDRESS>` option. When your validator proposes a block, it will allow you to earn block priority fees, also sometimes called "tips".
 
