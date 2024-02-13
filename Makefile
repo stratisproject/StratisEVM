@@ -3,12 +3,8 @@ build-binaries:
 	cd ./prysm-stratis && go build -o=../bin/beacon-chain ./cmd/beacon-chain
 	cd ./go-stratis && go build -o=../bin/geth ./cmd/geth
 
-init-geth-testnet:
-	./bin/geth --datadir=data/testnet/geth init configs/testnet/genesis.json
-
 run-geth-testnet:
 	./bin/geth \
-		--networkid=205205 \
 		--auroria \
 		--http \
 		--http.api=eth,engine,net,web3 \
@@ -29,8 +25,7 @@ run-beacon-testnet:
 		--p2p-static-id \
 		--auroria \
 		--datadir=data/testnet/beacon \
-		--min-sync-peers=1 \
-		--genesis-state=configs/testnet/genesis.ssz \
+		--min-sync-peers=3 \
 		--rpc-host=0.0.0.0 \
 		--grpc-gateway-host=0.0.0.0 \
 		--execution-endpoint=http://localhost:8551 \
