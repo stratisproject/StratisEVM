@@ -93,7 +93,7 @@ If you are planning to run a validator, it is **strongly** advised to use the `-
 
 Congratulations - you’re now running a **full StratisEVM node**. 
 
-Step 5: Setup validator to Stake
+Step 4: Setup validator to Stake
 -------------------------------------------
 Please refer to the Stratis Staking Launchpad to create your keys for staking:
 
@@ -102,7 +102,7 @@ Please refer to the Stratis Staking Launchpad to create your keys for staking:
 
 Alternatively, you can follow the below steps:
 
-Step 5a: Generate Keys without Launchpad (Optional)
+Step 4a: Generate Keys without Launchpad (Optional)
 -----------------------------------------------------------------
 Download - ideally on a new machine that has never been connected to the internet - the latest stable version of the deposit CLI from the [Staking Deposit CLI Releases page](https://github.com/stratisproject/staking-deposit-cli/releases) to the `bin` directory in this repository's local copy.
 
@@ -133,7 +133,7 @@ Follow the CLI prompts to generate your keys, it's better to use the directory `
     1.  `deposit_data-*.json` - contains deposit data that you’ll later upload to the Stratis launchpad.
     2.  `keystore-m_*.json` - contains your public key and encrypted private key.
 
-Step 5b: Import staking keys
+Step 4b: Import staking keys
 ----------------------------------
 
 If needed, copy the `validator_keys` folder to your primary machine. Run the following command to import your keystores, replacing `<YOUR_FOLDER_PATH>` with the full path to your `validator_keys` folder:
@@ -156,7 +156,7 @@ If needed, copy the `validator_keys` folder to your primary machine. Run the fol
 
 You’ll be prompted to specify a wallet directory twice. Provide the path to your future wallets directory. For example: `C:/repos/StratisEVM/configs/testnet/wallet_dir` or `C:/repos/StratisEVM/configs/mainnet/wallet_dir` for the selected network. You should see `Imported accounts [...] view all of them by running accounts list` when your account has been successfully imported into Prysm.
 
-Step 6: Make staking deposit and run validator
+Step 5: Make staking deposit and run validator
 -------------------------------------------
 
 Go to the Stratis Staking Launchpad site and continue through the prompts to upload your `deposit_data-*.json` file. You’ll be prompted to connect your wallet. 
