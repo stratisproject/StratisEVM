@@ -167,7 +167,7 @@ If you need tSTRAX, head over to our Discord server or use the Faucet:
 
 *   [Stratis Discord](https://discord.gg/ethstaker)
 
-Next, go to the launcphad and upload your `deposit_data-*.json` file. You’ll be prompted to connect your wallet.
+Next, go to the launchpad and upload your `deposit_data-*.json` file. You’ll be prompted to connect your wallet.
 
 [Auroria Staking Launchpad (Testnet)](https://auroria.launchpad.stratisevm.com/en/generate-keys)
 [Stratis Staking Launchpad (Mainnet)](https://launchpad.stratisevm.com/en/generate-keys)
