@@ -180,17 +180,17 @@ Finally, run the following command to start your validator, replacing `<YOUR_FOL
 #### Auroria (Testnet)
 	validator.exe --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 #### Mainnet
-	validator.exe --wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	validator.exe --wallet-dir=<YOUR_FOLDER_PATH> --mainnet --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 ### Linux
 #### Auroria (Testnet)
 	./validator --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 #### Mainnet
-	./validator -wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	./validator -wallet-dir=<YOUR_FOLDER_PATH> --mainnet --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 ## MacOS
 #### Auroria (Testnet)
 	./validator --wallet-dir=<YOUR_FOLDER_PATH> --auroria --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 #### Mainnet
-	./validator -wallet-dir=<YOUR_FOLDER_PATH> --mainnet--suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
+	./validator -wallet-dir=<YOUR_FOLDER_PATH> --mainnet --suggested-fee-recipient=<YOUR_WALLET_ADDRESS>
 
 You may wonder why you need to use the `--suggested-fee-recipient` in both beacon node and validator client. The reason is it is possible to plug multiple validator clients to the same beacon node. If no `--suggested-fee-recipient` is set on a validator client, then the beacon node will fallback on its own `--suggested-fee-recipient` when proposing a block.
 
