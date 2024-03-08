@@ -7,17 +7,20 @@ WORKDIR /usr/src/app
 RUN apt-get update && \
     apt-get install -y --no-install-recommends git make
 
-# Clone the StratisEVM repository
-RUN git clone https://github.com/stratisproject/StratisEVM --recurse-submodules
+# Download Prysm binary
+RUN wget https://github.com/stratisproject/prysm-stratis/releases/download/0.1.1/beacon-chain-linux-amd64-0ebd251.tar.gz -O beacon-chain.tar.gz && \
+    tar -xzf beacon-chain.tar.gz -C /usr/local/bin/ && \
+    rm beacon-chain.tar.gz
 
-# Build Prysm from Source
-WORKDIR /usr/src/app/StratisEVM/prysm-stratis
-RUN go build -o=/usr/local/bin/beacon-chain ./cmd/beacon-chain
+# Clone the StratisEVM repository
+RUN git clone https://github.com/stratisproject/StratisEVM
+
+# Set workdir
+WORKDIR /usr/src/app/StratisEVM
 
 # Expose Prysm ports
 EXPOSE 4000 13000 12000/udp
 
 # Run Prysm
-WORKDIR /usr/src/app/StratisEVM
 ENTRYPOINT ["/usr/local/bin/beacon-chain"]
-CMD ["--p2p-static-id", "--datadir=data/testnet/beacon", "--rpc-host=0.0.0.0", "--grpc-gateway-host=0.0.0.0", "--execution-endpoint=http://localhost:8551", "--accept-terms-of-use", "--jwt-secret=configs/testnet/jwtsecret", "--suggested-fee-recipient=0x123463a4B065722E99115D6c222f267d9cABb524", "--minimum-peers-per-subnet=0", "--enable-debug-rpc-endpoints"]
+CMD ["--p2p-static-id", "--datadir=data/testnet/beacon", "--auroria", "--rpc-host=0.0.0.0", "--grpc-gateway-host=0.0.0.0", "--execution-endpoint=http://geth:8551", "--accept-terms-of-use", "--jwt-secret=configs/testnet/jwtsecret", "--suggested-fee-recipient=0x123463a4B065722E99115D6c222f267d9cABb524", "--minimum-peers-per-subnet=0", "--enable-debug-rpc-endpoints"]

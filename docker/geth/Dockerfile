@@ -7,20 +7,20 @@ WORKDIR /usr/src/app
 RUN apt-get update && \
     apt-get install -y --no-install-recommends git make
 
+# Download Geth binary
+RUN wget https://github.com/stratisproject/go-stratis/releases/download/0.1.1/geth-linux-amd64-5c4504c.tar.gz -O geth.tar.gz && \
+    tar -xzf geth.tar.gz -C /usr/local/bin/ && \
+    rm geth.tar.gz
+
 # Clone the StratisEVM repository
-RUN git clone https://github.com/stratisproject/StratisEVM --recurse-submodules
+RUN git clone https://github.com/stratisproject/StratisEVM
 
-# Build Geth from Source
-WORKDIR /usr/src/app/StratisEVM/go-ethereum
-RUN go build -o=/usr/local/bin/geth ./cmd/geth
-
-# Initialize GETH
-WORKDIR /usr/src/app/StratisEVM
-RUN /usr/local/bin/geth --datadir=data/testnet/geth init configs/testnet/genesis.json
+# Set workdir
+WORKDIR /usr/src/app/StratisEVM/
 
 # Expose Geth ports
 EXPOSE 8545 30303
 
 # Run Geth
 ENTRYPOINT ["/usr/local/bin/geth"]
-CMD ["--datadir=data/testnet/geth", "--http", "--http.api=eth,engine,net,web3", "--http.addr=0.0.0.0", "--http.corsdomain=*", "--ws", "--ws.api=eth,engine,net,web3", "--ws.addr=0.0.0.0", "--ws.origins=*", "--authrpc.vhosts=*", "--authrpc.addr=0.0.0.0", "--authrpc.jwtsecret=configs/testnet/jwtsecret", "--syncmode=full"]
+CMD ["--datadir=data/testnet/geth", "--auroria" ,"--http", "--http.api=eth,engine,net,web3", "--http.addr=0.0.0.0", "--http.corsdomain=*", "--ws", "--ws.api=eth,engine,net,web3", "--ws.addr=0.0.0.0", "--ws.origins=*", "--authrpc.vhosts=*", "--authrpc.addr=0.0.0.0", "--authrpc.jwtsecret=configs/testnet/jwtsecret", "--syncmode=full"]
