@@ -3,26 +3,29 @@ version: '3.8'
 services:
   geth:
     build:
-      context: ./geth
+      context: ./mainnet/geth
       dockerfile: Dockerfile
     volumes:
-      - geth-data:/usr/src/app/StratisEVM/data/
+      - eth-data:/usr/src/app/StratisEVM/data/
+      - eth-data:/usr/src/app/StratisEVM/configs/
     ports:
       - "8545:8545"
       - "30303:30303"
 
   prysm:
     build:
-      context: ./prysm
+      context: ./mainnet/prysm
       dockerfile: Dockerfile
     volumes:
-      - prysm-data:/usr/src/app/StratisEVM/data/
+      - eth-data:/usr/src/app/StratisEVM/data/
+      - eth-data:/usr/src/app/StratisEVM/configs/
     ports:
       - "4000:4000"
       - "13000:13000"
       - "12000:12000/udp"
     working_dir: /usr/src/app/StratisEVM
+    depends_on:
+      - geth
 
 volumes:
-  geth-data:
-  prysm-data:
+  eth-data:
