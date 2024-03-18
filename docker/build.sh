@@ -1,5 +1,4 @@
-#!/bin/bash
-# Build Geth container
-docker build -t stratis-geth:latest ./geth
-# Build Prysm container
-docker build -t stratis-prysm:latest ./prysm
+docker-compose build --force-rm
+docker-compose -f docker-compose.archive.yml build --force-rm
+docker-compose -f docker-compose.auroria.yml build --force-rm
+docker-compose -f docker-compose.auroria.archive.yml build --force-rm

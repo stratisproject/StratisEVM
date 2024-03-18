@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  geth-auroria-archive:
+    build:
+      context: ./auroria-archive/geth
+      dockerfile: Dockerfile
+    volumes:
+      - eth-data-auroria-archive:/usr/src/app/StratisEVM/data/
+      - eth-data-auroria-archive:/usr/src/app/StratisEVM/configs/
+    ports:
+      - "8545:8545"
+      - "30303:30303"
+
+  prysm-auroria-archive:
+    build:
+      context: ./auroria-archive/prysm
+      dockerfile: Dockerfile
+    volumes:
+      - eth-data-auroria-archive:/usr/src/app/StratisEVM/data/
+      - eth-data-auroria-archive:/usr/src/app/StratisEVM/configs/
+    ports:
+      - "4000:4000"
+      - "13000:13000"
+      - "12000:12000/udp"
+    working_dir: /usr/src/app/StratisEVM
+    depends_on:
+      - geth-auroria-archive
+
+volumes:
+  eth-data-auroria-archive:
