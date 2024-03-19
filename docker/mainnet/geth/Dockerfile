@@ -23,10 +23,10 @@ RUN cd ./StratisEVM/go-stratis && \
 	go build -o=../bin/geth ./cmd/geth
 
 # Expose Geth ports
-EXPOSE 8545 30303
+EXPOSE 8545 8546 30303
 
 # Set workdir
 WORKDIR /usr/src/app/StratisEVM
 
 # Run Geth
-ENTRYPOINT /usr/src/app/StratisEVM/bin/geth --datadir=data/${NETWORK}/geth --${NETWORK} --gcmode=${SYNCMODE} --http --http.api=eth,engine,net,web3 --http.addr=0.0.0.0 --http.corsdomain=* --ws --ws.api=eth,engine,net,web3 --ws.addr=0.0.0.0 --ws.origins=* --authrpc.vhosts=* --authrpc.addr=0.0.0.0 --authrpc.jwtsecret=configs/${NETWORK}/jwtsecret --syncmode=${SYNCMODE}
+ENTRYPOINT /usr/src/app/StratisEVM/bin/geth --datadir=data/${NETWORK}/geth --gcmode=${SYNCMODE} --http --http.api=eth,engine,net,web3 --http.addr=0.0.0.0 --http.corsdomain=* --ws --ws.api=eth,engine,net,web3 --ws.addr=0.0.0.0 --ws.origins=* --authrpc.vhosts=* --authrpc.addr=0.0.0.0 --authrpc.jwtsecret=configs/${NETWORK}/jwtsecret --syncmode=${SYNCMODE}
