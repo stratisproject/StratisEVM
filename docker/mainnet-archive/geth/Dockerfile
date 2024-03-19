@@ -29,4 +29,4 @@ EXPOSE 8545 8546 30303
 WORKDIR /usr/src/app/StratisEVM
 
 # Run Geth
-ENTRYPOINT /usr/src/app/StratisEVM/bin/geth --datadir=data/${NETWORK}/geth --gcmode=${SYNCMODE} --http --http.api=eth,engine,net,web3,txpool,debug --http.addr=0.0.0.0 --http.corsdomain=* --ws --ws.api=eth,engine,net,web3,txpool,debug --ws.addr=0.0.0.0 --ws.origins=* --authrpc.vhosts=* --authrpc.addr=0.0.0.0 --authrpc.jwtsecret=configs/${NETWORK}/jwtsecret --syncmode=full
+ENTRYPOINT /usr/src/app/StratisEVM/bin/geth --datadir=data/${NETWORK}/geth --gcmode=${SYNCMODE} --http --http.api=eth,engine,net,web3,txpool,debug,admin --http.addr=0.0.0.0 --http.corsdomain=* --ws --ws.api=eth,engine,net,web3,txpool,debug,admin --ws.addr=0.0.0.0 --ws.origins=* --authrpc.vhosts=* --authrpc.addr=0.0.0.0 --authrpc.jwtsecret=configs/${NETWORK}/jwtsecret --syncmode=full
