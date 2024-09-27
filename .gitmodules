@@ -1,11 +1,11 @@
 [submodule "prysm-stratis"]
 	path = prysm-stratis
 	url = https://github.com/stratisproject/prysm-stratis
-	branch = Test
+	branch = release/1.1
 [submodule "go-stratis"]
 	path = go-stratis
 	url = https://github.com/stratisproject/go-stratis
-	branch = Test
+	branch = release/1.1
 [submodule "staking-deposit-cli"]
 	path = staking-deposit-cli
 	url = https://github.com/stratisproject/staking-deposit-cli
